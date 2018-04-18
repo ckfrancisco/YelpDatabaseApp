@@ -56,7 +56,7 @@ namespace DuckAndCo_YelpApp
                     {
                         while (reader.Read())
                         {
-                            stateComboBox.Items.Add(reader.GetString(0));
+                            businessesLocationStateComboBox.Items.Add(reader.GetString(0));
                         }
                     }
                 }
@@ -73,34 +73,34 @@ namespace DuckAndCo_YelpApp
             colBusinessName.Header = "Business Name";
             colBusinessName.Binding = new Binding("name");
             colBusinessName.Width = 255;
-            businessGrid.Columns.Add(colBusinessName);
+            businessesBusinessesBusinessesDataGrid.Columns.Add(colBusinessName);
 
             DataGridTextColumn colState = new DataGridTextColumn();
             colState.Header = "State";
             colState.Binding = new Binding("state");
             colBusinessName.Width = 255;
-            businessGrid.Columns.Add(colState);
+            businessesBusinessesBusinessesDataGrid.Columns.Add(colState);
 
             DataGridTextColumn colCity = new DataGridTextColumn();
             colCity.Header = "City";
             colCity.Binding = new Binding("city");
             colCity.Width = 255;
-            businessGrid.Columns.Add(colCity);
+            businessesBusinessesBusinessesDataGrid.Columns.Add(colCity);
 
             DataGridTextColumn colPostalCode = new DataGridTextColumn();
             colPostalCode.Header = "Postal Code";
             colPostalCode.Binding = new Binding("postalCode");
             colPostalCode.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
-            businessGrid.Columns.Add(colPostalCode);
+            businessesBusinessesBusinessesDataGrid.Columns.Add(colPostalCode);
         }
 
-        private void stateComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void businessesLocationStateComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cityComboBox.Items.Clear();
-            postalCodeComboBox.Items.Clear();
-            categoriesListBox.ItemsSource = null;
-            businessGrid.Items.Clear();
-            if (stateComboBox.SelectedItem == null)
+            businessesLocationCityComboBox.Items.Clear();
+            businessesLocationPostalCodeComboBox.Items.Clear();
+            businessesCategoriesCategoriesListBox.ItemsSource = null;
+            businessesBusinessesBusinessesDataGrid.Items.Clear();
+            if (businessesLocationStateComboBox.SelectedItem == null)
                 return;
 
             using (var connection = new NpgsqlConnection(buildConnectionString()))
@@ -111,14 +111,14 @@ namespace DuckAndCo_YelpApp
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT distinct city " +
                                       "FROM businesses " + 
-                                      "WHERE state='" + stateComboBox.SelectedItem.ToString() + "' " +
+                                      "WHERE state='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' " +
                                       "ORDER BY city;";
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            cityComboBox.Items.Add(reader.GetString(0));
+                            businessesLocationCityComboBox.Items.Add(reader.GetString(0));
                         }
                     }
                 }
@@ -127,12 +127,12 @@ namespace DuckAndCo_YelpApp
             }
         }
 
-        private void cityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void businessesLocationCityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            postalCodeComboBox.Items.Clear();
-            categoriesListBox.ItemsSource = null;
-            businessGrid.Items.Clear();
-            if (cityComboBox.SelectedItem == null)
+            businessesLocationPostalCodeComboBox.Items.Clear();
+            businessesCategoriesCategoriesListBox.ItemsSource = null;
+            businessesBusinessesBusinessesDataGrid.Items.Clear();
+            if (businessesLocationCityComboBox.SelectedItem == null)
                 return;
 
             using (var connection = new NpgsqlConnection(buildConnectionString()))
@@ -143,14 +143,14 @@ namespace DuckAndCo_YelpApp
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT distinct postalcode " +
                                       "FROM businesses " +
-                                      "WHERE state='" + stateComboBox.SelectedItem.ToString() + "' AND " + 
-                                            "city='" + cityComboBox.SelectedItem.ToString() + "';";
+                                      "WHERE state='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' AND " + 
+                                            "city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "';";
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            postalCodeComboBox.Items.Add(reader.GetString(0));
+                            businessesLocationPostalCodeComboBox.Items.Add(reader.GetString(0));
                         }
                     }
                 }
@@ -159,11 +159,11 @@ namespace DuckAndCo_YelpApp
             }
         }
 
-        private void postalCodeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void businessesLocationPostalCodeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            categoriesListBox.ItemsSource = null;
-            businessGrid.Items.Clear();
-            if (postalCodeComboBox.SelectedItem == null)
+            businessesCategoriesCategoriesListBox.ItemsSource = null;
+            businessesBusinessesBusinessesDataGrid.Items.Clear();
+            if (businessesLocationPostalCodeComboBox.SelectedItem == null)
                 return;
 
             List<string> categories = new List<string>();
@@ -179,8 +179,8 @@ namespace DuckAndCo_YelpApp
                                             "(SELECT distinct(b.bid) " +
                                             "FROM businesses as b, " +
                                             "categories as c " +
-                                            "WHERE b.postalcode = '" + postalCodeComboBox.SelectedItem.ToString() + "' AND " + 
-                                                  "b.city='" + cityComboBox.SelectedItem.ToString() + "') as bids, " + 
+                                            "WHERE b.postalcode = '" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " + 
+                                                  "b.city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "') as bids, " + 
                                             "categories as c " +
                                       "WHERE bids.bid = c.bid;";
 
@@ -194,14 +194,14 @@ namespace DuckAndCo_YelpApp
 
                     cmd.CommandText = "SELECT b.name, b.state, b.city, b.postalcode " +
                                       "FROM businesses as b " +
-                                      "WHERE b.city='" + cityComboBox.SelectedItem.ToString() + "' AND " +
-                                            "b.postalcode='" + postalCodeComboBox.SelectedItem.ToString() + "'; ";
+                                      "WHERE b.city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
+                                            "b.postalcode='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "'; ";
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            businessGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
+                            businessesBusinessesBusinessesDataGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
                         }
                     }
                 }
@@ -209,15 +209,15 @@ namespace DuckAndCo_YelpApp
                 connection.Close();
             }
 
-            categoriesListBox.ItemsSource = categories;
+            businessesCategoriesCategoriesListBox.ItemsSource = categories;
         }
 
-        private void categoriesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void businessesCategoriesCategoriesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            businessGrid.Items.Clear();
-            if (postalCodeComboBox.SelectedItem == null)
+            businessesBusinessesBusinessesDataGrid.Items.Clear();
+            if (businessesLocationPostalCodeComboBox.SelectedItem == null)
                 return;
-            if (categoriesListBox.SelectedItem == null)
+            if (businessesCategoriesCategoriesListBox.SelectedItem == null)
                 return;
 
             using (var connection = new NpgsqlConnection(buildConnectionString()))
@@ -228,19 +228,19 @@ namespace DuckAndCo_YelpApp
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT b.name, b.state, b.city, b.postalcode " +
                                       "FROM businesses as b " +
-                                      "WHERE b.city='" + cityComboBox.SelectedItem.ToString() + "' AND " +
-                                            "b.postalcode='" + postalCodeComboBox.SelectedItem.ToString() + "' AND " +
+                                      "WHERE b.city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
+                                            "b.postalcode='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " +
                                             "b.bid IN " +
                                                   "(SELECT bid " +
                                                   "FROM categories as c " +
-                                                  "WHERE c.name='" + categoriesListBox.SelectedItem.ToString() + "');";
+                                                  "WHERE c.name='" + businessesCategoriesCategoriesListBox.SelectedItem.ToString() + "');";
 
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            businessGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
+                            businessesBusinessesBusinessesDataGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
                         }
                     }
                 }

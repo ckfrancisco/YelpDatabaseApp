@@ -11,87 +11,95 @@
 
             <TabItem Header="Users">
                 <Grid>
-                    <GroupBox x:Name="userGroupBox" Header="Select User" Margin="10,10,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276">
+                    <GroupBox x:Name="usersUserGroupBox" Header="Select User" Margin="10,10,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276">
                         <Grid>
-                            <Label x:Name="nameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                            <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="26" Padding="0,3,0,0" Margin="62,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+                            <Label x:Name="usersUserNameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                            <TextBox x:Name="usersUserNameTextBox" HorizontalAlignment="Left" Height="26" Padding="0,4,0,0" Margin="62,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
 
-                            <Label x:Name="userLabel" Content="User ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
-                            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="62,41,0,0" VerticalAlignment="Top" Width="192" Height="26"/>
+                            <Label x:Name="usersUserIDLabel" Content="User ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
+                            <ComboBox x:Name="usersUserIDComboBox" HorizontalAlignment="Left" Margin="62,41,0,0" VerticalAlignment="Top" Width="192" Height="26"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="friendsGroupBox" Header="Friends" Margin="10,115,0,10" HorizontalAlignment="Left" Width="276">
+                    <GroupBox x:Name="usersFriendsGroupBox" Header="Friends" Margin="10,115,0,10" HorizontalAlignment="Left" Width="276">
                         <Grid>
-                            <DataGrid x:Name="friendsGrid" Margin="10,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="userInfoGroupBox" Header="Information" Margin="291,10,314,0" VerticalAlignment="Top" Height="157">
+                    <GroupBox x:Name="usersInfoGroupBox" Header="Information" Margin="291,10,314,0" VerticalAlignment="Top" Height="157">
                         <Grid>
-                            <Label x:Name="nameInfoLabel" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="nameInfoTextBox" Height="26" Padding="0,3,0,0" Margin="95,10,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersInfoNameLabel" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersInfoNameTextBox" Height="26" Padding="0,4,0,0" Margin="95,10,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-                            <Label x:Name="starsLabel" Content="Stars" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,0.224"/>
-                            <TextBox x:Name="starsTextBox" Height="26" Padding="0,3,0,0" Margin="95,41,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usesrInfoStarsLabel" Content="Stars" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,0.224"/>
+                            <TextBox x:Name="usersInfoStarsTextBox" Height="26" Padding="0,4,0,0" Margin="95,41,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-                            <Label x:Name="fansLabel" Content="Fans" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.2,1.335"/>
-                            <TextBox x:Name="fansTextBox" Height="26" Padding="0,3,0,0" Margin="95,72,118,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+                            <Label x:Name="usersInfoFansLabel" Content="Fans" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.2,1.335"/>
+                            <TextBox x:Name="usersInfoFansTextBox" Height="26" Padding="0,4,0,0" Margin="95,72,118,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
 
-                            <Label x:Name="sinceLabel" Content="Yelping Since" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="sinceTextBox" Height="26" Padding="0,3,0,0" Margin="95,103,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersInfoSinceLabel" Content="Yelping Since" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersInfoSinceTextBox" Height="26" Padding="0,4,0,0" Margin="95,103,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-                            <Label x:Name="funnyLabel" Content="Funny" Margin="0,10,71,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="42"/>
-                            <TextBox x:Name="funnyTextBox" Height="26" Padding="0,3,0,0" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
+                            <Label x:Name="usersInfoFunnyLabel" Content="Funny" Margin="0,10,71,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="42"/>
+                            <TextBox x:Name="usersInfoFunnyTextBox" Height="26" Padding="0,4,0,0" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
 
-                            <Label x:Name="coolLabel" Content="Cool" Margin="0,41,79,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="34"/>
-                            <TextBox x:Name="coolTextBox" Height="26" Padding="0,3,0,0" Margin="0,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
+                            <Label x:Name="usersInfoCoolLabel" Content="Cool" Margin="0,41,79,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="34"/>
+                            <TextBox x:Name="usersInfoCoolTextBox" Height="26" Padding="0,4,0,0" Margin="0,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
 
-                            <Label x:Name="usefulLabel" Content="Useful" Margin="0,72,70,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="43"/>
-                            <TextBox x:Name="usefulTextBox" Height="26" Padding="0,3,0,0" Margin="0,72,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
+                            <Label x:Name="usersInfoUsefulLabel" Content="Useful" Margin="0,72,70,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="43"/>
+                            <TextBox x:Name="usersInfoUsefulTextBox" Height="26" Padding="0,4,0,0" Margin="0,72,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="userLocationGroupBox" Header="Location" Margin="0,10,10,0" VerticalAlignment="Top" Height="157" HorizontalAlignment="Right" Width="299">
+                    <GroupBox x:Name="usersLocationGroupBox" Header="Location" Margin="0,10,10,0" VerticalAlignment="Top" Height="157" HorizontalAlignment="Right" Width="299">
                         <Grid>
-                            <Label x:Name="latitudeLabel" Content="Latitude" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="latitudeTextBox" Height="26" Padding="0,3,0,0" Margin="79,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersLocationLatitudeLabel" Content="Latitude" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersLocationLatitudeTextBox" Height="26" Padding="0,4,0,0" Margin="79,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-                            <Label x:Name="longitudeLabel" Content="Longitude" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="longitudeTextBox" Height="26" Padding="0,3,0,0" Margin="79,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersLocationLongitudeLabel" Content="Longitude" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersLocationLongitudeTextBox" Height="26" Padding="0,4,0,0" Margin="79,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="tipsGroupBox" Header="Tips From Friends" Margin="291,172,10,10">
+                    <GroupBox x:Name="usersReviewsGroupBox" Header="Reviews From Friends" Margin="291,172,10,10">
                         <Grid>
-                            <DataGrid x:Name="tipsGrid" Margin="10,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <DataGrid x:Name="usersReviewsReviewsDataGrid" Margin="10,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Reviews">
+            <TabItem Header="Businesses">
                 <Grid>
-                    <GroupBox x:Name="locationGroupBox" Header="Select Location" Margin="10,10,0,0" Height="132" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="975*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="businessesLocationGroupBox" Header="Select Location" Margin="10,10,0,0" Height="132" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276" Grid.ColumnSpan="2">
                         <Grid>
-                            <Label x:Name="stateLabel" Content="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                            <ComboBox x:Name="stateComboBox" Height="26" VerticalAlignment="Top" Margin="88,10,10,0" SelectionChanged="stateComboBox_SelectionChanged"/>
+                            <Label x:Name="businessesLocationStateLabel" Content="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                            <ComboBox x:Name="businessesLocationStateComboBox" Height="26" VerticalAlignment="Top" Margin="88,10,10,0" SelectionChanged="businessesLocationStateComboBox_SelectionChanged"/>
 
-                            <Label x:Name="cityLabel" Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
-                            <ComboBox x:Name="cityComboBox" Height="26" VerticalAlignment="Top" Margin="88,41,10,0" SelectionChanged="cityComboBox_SelectionChanged"/>
+                            <Label x:Name="businessesLocationCityLabel" Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
+                            <ComboBox x:Name="businessesLocationCityComboBox" Height="26" VerticalAlignment="Top" Margin="88,41,10,0" SelectionChanged="businessesLocationCityComboBox_SelectionChanged"/>
 
-                            <Label x:Name="postalCodeLabel" Content="Postal Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0"/>
-                            <ComboBox x:Name="postalCodeComboBox" Height="26" VerticalAlignment="Top" Margin="88,72,10,0" SelectionChanged="postalCodeComboBox_SelectionChanged"/>
+                            <Label x:Name="businessesLocationPostalCodeLabel" Content="Postal Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0"/>
+                            <ComboBox x:Name="businessesLocationPostalCodeComboBox" Height="26" VerticalAlignment="Top" Margin="88,72,10,0" SelectionChanged="businessesLocationPostalCodeComboBox_SelectionChanged"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="categoriesGroupBox" Header="Business Categories" Margin="10,147,0,10" HorizontalAlignment="Left" Width="276">
+                    <GroupBox x:Name="businessesCategoriesGroupBox" Header="Categories" Margin="10,147,0,10" HorizontalAlignment="Left" Width="276" Grid.ColumnSpan="2">
                         <Grid>
-                            <ListBox x:Name="categoriesListBox" Margin="10" SelectionChanged="categoriesListBox_SelectionChanged"/>
+                            <ListBox x:Name="businessesCategoriesCategoriesListBox" Margin="10" SelectionChanged="businessesCategoriesCategoriesListBox_SelectionChanged" SelectionMode="Multiple"/>
                         </Grid>
                     </GroupBox>
 
-                    <DataGrid x:Name="businessGrid" Margin="291,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                    <GroupBox x:Name="businessesBusinessesGroupBox" Header="Business" Margin="280,10,10,10" Grid.Column="1">
+                        <Grid>
+                            <DataGrid x:Name="businessesBusinessesBusinessesDataGrid" Margin="10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
 
