@@ -1,0 +1,16 @@
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.exe.config
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.exe
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.pdb
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\bin\Debug\Npgsql.dll
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\bin\Debug\Npgsql.xml
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csprojResolveAssemblyReference.cache
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\MainWindow.g.cs
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\App.g.cs
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp_MarkupCompile.cache
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp_MarkupCompile.lref
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\MainWindow.baml
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.g.resources
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.Properties.Resources.resources
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csproj.GenerateResource.Cache
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.exe
+D:\Users\Christian\Desktop\DuckAndCo_YelpApp\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.pdb

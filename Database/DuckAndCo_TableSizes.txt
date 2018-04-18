@@ -1,0 +1,8 @@
+Businesses  11481
+Categories  33619
+Attributes  227536
+Hours       55502
+CheckIns    67407
+Users       192999
+Friends     1052706
+Reviews     416480
