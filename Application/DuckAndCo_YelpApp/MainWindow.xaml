@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DuckAndCo_YelpApp"
         mc:Ignorable="d"
-        Title="DuckAndCo_YelpApp" Height="845" Width="1445" MinWidth="1445" MinHeight="850">
+        Title="DuckAndCo_YelpApp" Height="840" Width="1445" MinWidth="1445" MinHeight="840">
     <Grid>
         <TabControl>
 
@@ -98,7 +98,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="businessesCategoriesGroupBox" Header="Categories" Margin="10,160,0,20" HorizontalAlignment="Left" Width="353">
+                    <GroupBox x:Name="businessesCategoriesGroupBox" Header="Categories" Margin="10,160,0,10" HorizontalAlignment="Left" Width="353">
                         <Grid>
                             <ListBox x:Name="businessesCategoriesCategoriesListBox" Margin="10" SelectionChanged="businessesCategoriesCategoriesListBox_SelectionChanged" SelectionMode="Multiple"/>
                         </Grid>
@@ -138,7 +138,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="businessesStatisticsGroupBox" Header="Statistics" Margin="368,651,0,20" HorizontalAlignment="Left" Width="280">
+                    <GroupBox x:Name="businessesStatisticsGroupBox" Header="Statistics" Margin="368,651,0,10" HorizontalAlignment="Left" Width="280">
                         <Grid>
                             <Button x:Name="businessesStatisticsCheckinsButton" Content="Show Checkins" Margin="10,10,10,0" VerticalAlignment="Top"/>
                             <Button x:Name="businessesStatisticsReviewsButton" Content="Show Reviews" Margin="10,35,10,0" VerticalAlignment="Top"/>
@@ -156,7 +156,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="businessesReviewGroupBox" Header="Review" Margin="653,480,10,20">
+                    <GroupBox x:Name="businessesReviewGroupBox" Header="Review" Margin="653,480,10,10">
                         <Grid>
                             <TextBox x:Name="businessesReviewNameTextBox" Height="26" Padding="0,4,0,0" Margin="10,10,184,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                             <TextBox x:Name="businessesReviewReviewTextBox" Padding="0,4,0,0" Margin="10,41,184,10" TextWrapping="Wrap"/>
