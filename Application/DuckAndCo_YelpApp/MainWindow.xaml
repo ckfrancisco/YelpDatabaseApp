@@ -5,64 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DuckAndCo_YelpApp"
         mc:Ignorable="d"
-        Title="DuckAndCo_YelpApp" Height="360" Width="783" MinWidth="1000" MinHeight="500">
+        Title="DuckAndCo_YelpApp" Height="845" Width="1445" MinWidth="1445" MinHeight="850">
     <Grid>
         <TabControl>
 
             <TabItem Header="Users">
                 <Grid>
-                    <GroupBox x:Name="usersUserGroupBox" Header="Select User" Margin="10,10,0,0" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276">
+                    <GroupBox x:Name="usersUserGroupBox" Header="Select User" Padding="10" Margin="10,10,0,0" Height="162" VerticalAlignment="Top" HorizontalAlignment="Left" Width="348">
                         <Grid>
-                            <Label x:Name="usersUserNameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                            <TextBox x:Name="usersUserNameTextBox" HorizontalAlignment="Left" Height="26" Padding="0,4,0,0" Margin="62,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
+                            <Label x:Name="usersUserNameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersUserNameTextBox" HorizontalAlignment="Left" Height="26" Padding="0,4,0,0" Margin="54,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256"/>
 
-                            <Label x:Name="usersUserIDLabel" Content="User ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
-                            <ComboBox x:Name="usersUserIDComboBox" HorizontalAlignment="Left" Margin="62,41,0,0" VerticalAlignment="Top" Width="192" Height="26"/>
+                            <Label x:Name="usersUserIDLabel" Content="User ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,31,0,0"/>
+                            <ComboBox x:Name="usersUserIDComboBox" HorizontalAlignment="Left" Margin="54,31,0,0" VerticalAlignment="Top" Width="256" Height="26"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="usersFriendsGroupBox" Header="Friends" Margin="10,115,0,10" HorizontalAlignment="Left" Width="276">
+                    <GroupBox x:Name="usersFriendsGroupBox" Header="Friends" Margin="10,177,0,10" HorizontalAlignment="Left" Width="348">
                         <Grid>
-                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="usersInfoGroupBox" Header="Information" Margin="291,10,314,0" VerticalAlignment="Top" Height="157">
+                    <GroupBox x:Name="usersInfoGroupBox" Header="Information" Padding="10" Margin="363,10,0,0" VerticalAlignment="Top" Height="162" HorizontalAlignment="Left" Width="684">
                         <Grid>
-                            <Label x:Name="usersInfoNameLabel" Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="usersInfoNameTextBox" Height="26" Padding="0,4,0,0" Margin="95,10,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersInfoNameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersInfoNameTextBox" Height="26" Padding="0,4,0,0" Margin="85,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
 
-                            <Label x:Name="usesrInfoStarsLabel" Content="Stars" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,0.224"/>
-                            <TextBox x:Name="usersInfoStarsTextBox" Height="26" Padding="0,4,0,0" Margin="95,41,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usesrInfoStarsLabel" Content="Stars" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,0.224"/>
+                            <TextBox x:Name="usersInfoStarsTextBox" Height="26" Padding="0,4,0,0" Margin="85,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
 
-                            <Label x:Name="usersInfoFansLabel" Content="Fans" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.2,1.335"/>
-                            <TextBox x:Name="usersInfoFansTextBox" Height="26" Padding="0,4,0,0" Margin="95,72,118,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+                            <Label x:Name="usersInfoFansLabel" Content="Fans" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.2,1.335"/>
+                            <TextBox x:Name="usersInfoFansTextBox" Padding="0,4,0,0" Margin="85,62,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="256" Height="26" VerticalAlignment="Top"/>
 
-                            <Label x:Name="usersInfoSinceLabel" Content="Yelping Since" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="usersInfoSinceTextBox" Height="26" Padding="0,4,0,0" Margin="95,103,118,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersInfoSinceLabel" Content="Yelping Since" HorizontalAlignment="Left" Margin="0,93,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersInfoSinceTextBox" Height="26" Padding="0,4,0,0" Margin="85,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
 
-                            <Label x:Name="usersInfoFunnyLabel" Content="Funny" Margin="0,10,71,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="42"/>
-                            <TextBox x:Name="usersInfoFunnyTextBox" Height="26" Padding="0,4,0,0" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
+                            <Label x:Name="usersInfoFunnyLabel" Content="Funny" Margin="346,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42"/>
+                            <TextBox x:Name="usersInfoFunnyTextBox" Height="26" Padding="0,4,0,0" Margin="394,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
 
-                            <Label x:Name="usersInfoCoolLabel" Content="Cool" Margin="0,41,79,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="34"/>
-                            <TextBox x:Name="usersInfoCoolTextBox" Height="26" Padding="0,4,0,0" Margin="0,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
+                            <Label x:Name="usersInfoCoolLabel" Content="Cool" Margin="346,31,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34"/>
+                            <TextBox x:Name="usersInfoCoolTextBox" Height="26" Padding="0,4,0,0" Margin="394,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
 
-                            <Label x:Name="usersInfoUsefulLabel" Content="Useful" Margin="0,72,70,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="43"/>
-                            <TextBox x:Name="usersInfoUsefulTextBox" Height="26" Padding="0,4,0,0" Margin="0,72,10,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55"/>
+                            <Label x:Name="usersInfoUsefulLabel" Content="Useful" Margin="346,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="43"/>
+                            <TextBox x:Name="usersInfoUsefulTextBox" Height="26" Padding="0,4,0,0" Margin="394,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="usersLocationGroupBox" Header="Location" Margin="0,10,10,0" VerticalAlignment="Top" Height="157" HorizontalAlignment="Right" Width="299">
+                    <GroupBox x:Name="usersLocationGroupBox" Header="Location" Padding="10"  Margin="1052,10,10,0" VerticalAlignment="Top" Height="162">
                         <Grid>
-                            <Label x:Name="usersLocationLatitudeLabel" Content="Latitude" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="usersLocationLatitudeTextBox" Height="26" Padding="0,4,0,0" Margin="79,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersLocationLatitudeLabel" Content="Latitude" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersLocationLatitudeTextBox" Height="26" Padding="0,4,0,0" Margin="69,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
 
-                            <Label x:Name="usersLocationLongitudeLabel" Content="Longitude" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="usersLocationLongitudeTextBox" Height="26" Padding="0,4,0,0" Margin="79,41,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <Label x:Name="usersLocationLongitudeLabel" Content="Longitude" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="usersLocationLongitudeTextBox" Height="26" Padding="0,4,0,0" Margin="69,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="256"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="usersReviewsGroupBox" Header="Reviews From Friends" Margin="291,172,10,10">
+                    <GroupBox x:Name="usersReviewsGroupBox" Header="Reviews From Friends" Margin="363,177,10,10">
                         <Grid>
                             <DataGrid x:Name="usersReviewsReviewsDataGrid" Margin="10,10,10,10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
                         </Grid>
@@ -72,32 +72,98 @@
 
             <TabItem Header="Businesses">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="11*"/>
-                        <ColumnDefinition Width="975*"/>
-                    </Grid.ColumnDefinitions>
-                    <GroupBox x:Name="businessesLocationGroupBox" Header="Select Location" Margin="10,10,0,0" Height="132" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276" Grid.ColumnSpan="2">
+                    <GroupBox x:Name="businessesLocationGroupBox" Header="Select Location" Padding="10" Margin="10,10,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="638">
                         <Grid>
-                            <Label x:Name="businessesLocationStateLabel" Content="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-                            <ComboBox x:Name="businessesLocationStateComboBox" Height="26" VerticalAlignment="Top" Margin="88,10,10,0" SelectionChanged="businessesLocationStateComboBox_SelectionChanged"/>
+                            <Label x:Name="businessesLocationStateLabel" Content="State" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+                            <ComboBox x:Name="businessesLocationStateComboBox" Height="26" VerticalAlignment="Top" Margin="92,0,0,0" SelectionChanged="businessesLocationStateComboBox_SelectionChanged" HorizontalAlignment="Left" Width="128"/>
 
-                            <Label x:Name="businessesLocationCityLabel" Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
-                            <ComboBox x:Name="businessesLocationCityComboBox" Height="26" VerticalAlignment="Top" Margin="88,41,10,0" SelectionChanged="businessesLocationCityComboBox_SelectionChanged"/>
+                            <Label x:Name="businessesLocationCityLabel" Content="City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,0,0,0" RenderTransformOrigin="1.1,0.577"/>
+                            <ComboBox x:Name="businessesLocationCityComboBox" Height="26" VerticalAlignment="Top" Margin="267,0,0,0" SelectionChanged="businessesLocationCityComboBox_SelectionChanged" HorizontalAlignment="Left" Width="128"/>
 
-                            <Label x:Name="businessesLocationPostalCodeLabel" Content="Postal Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0"/>
-                            <ComboBox x:Name="businessesLocationPostalCodeComboBox" Height="26" VerticalAlignment="Top" Margin="88,72,10,0" SelectionChanged="businessesLocationPostalCodeComboBox_SelectionChanged"/>
+                            <Label x:Name="businessesLocationPostalCodeLabel" Content="Postal Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,0,0,0"/>
+                            <ComboBox x:Name="businessesLocationPostalCodeComboBox" Height="26" VerticalAlignment="Top" Margin="478,0,0,0" SelectionChanged="businessesLocationPostalCodeComboBox_SelectionChanged" HorizontalAlignment="Left" Width="128"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="businessesCategoriesGroupBox" Header="Categories" Margin="10,147,0,10" HorizontalAlignment="Left" Width="276" Grid.ColumnSpan="2">
+                    <GroupBox x:Name="businessesOpenGroupBox" Header="Open Businesses" Padding="10" Margin="10,85,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="638">
+                        <Grid>
+                            <Label x:Name="businessesOpenDayLabel" Content="Day of Week" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+                            <ComboBox x:Name="businessesOpenStateComboBox" Height="26" VerticalAlignment="Top" Margin="92,0,0,0" SelectionChanged="businessesLocationStateComboBox_SelectionChanged" HorizontalAlignment="Left" Width="128"/>
+
+                            <Label x:Name="businessesOpenFromLabel" Content="From" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,0,0,0" RenderTransformOrigin="-0.027,0.538"/>
+                            <ComboBox x:Name="businessesOpenCityComboBox" Height="26" VerticalAlignment="Top" Margin="267,0,0,0" SelectionChanged="businessesLocationCityComboBox_SelectionChanged" HorizontalAlignment="Left" Width="128"/>
+
+                            <Label x:Name="businessesOpenToLabel" Content="To" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,0,0,0"/>
+                            <ComboBox x:Name="businessesOpenPostalCodeComboBox" Height="26" VerticalAlignment="Top" Margin="478,0,0,0" SelectionChanged="businessesLocationPostalCodeComboBox_SelectionChanged" HorizontalAlignment="Left" Width="128"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="businessesCategoriesGroupBox" Header="Categories" Margin="10,160,0,20" HorizontalAlignment="Left" Width="353">
                         <Grid>
                             <ListBox x:Name="businessesCategoriesCategoriesListBox" Margin="10" SelectionChanged="businessesCategoriesCategoriesListBox_SelectionChanged" SelectionMode="Multiple"/>
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="businessesBusinessesGroupBox" Header="Business" Margin="280,10,10,10" Grid.Column="1">
+                    <GroupBox x:Name="businessesPriceGroupBox" Header="Filter By Price" HorizontalAlignment="Left" Margin="368,160,0,0" VerticalAlignment="Top" Height="75" Width="280">
+                        <Grid>
+                            <CheckBox x:Name="businessesPrice0CheckBox" Content="$" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesPrice1CheckBox" Content="$$" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesPrice2CheckBox" Content="$$$" Margin="183,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="39"/>
+                            <CheckBox x:Name="businessesPrice3CheckBox" Content="$$$$" Margin="183,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46" RenderTransformOrigin="0.63,-0.933"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="businessesAttributesGroupBox" Header="Filter By Attributes" HorizontalAlignment="Left" Margin="368,240,0,0" VerticalAlignment="Top" Height="235" Width="280">
+                        <Grid>
+                            <CheckBox x:Name="businessesAttributesCreditCardsCheckBox" Content="Accepts Credit Cards" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesReservationsCheckBox" Content="Takes Reservations" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesWheelchairCheckBox" Content="Wheelchair Accessible" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesOutdoorCheckBox" Content="Outdoor Seating" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesKidsCheckBox" Content="Good for Kids" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesGroupsCheckBox" Content="Good for Groups" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesDeliveryCheckBox" Content="Delivery" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,-0.867"/>
+                            <CheckBox x:Name="businessesAttributesTakeOutCheckBox" Content="Take Out" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesWiFiCheckBox" Content="Free WiFi" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesBikeParkingCheckBox" Content="Bike Parking" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="businessesMealGroupBox" Header="Filter By Meal" HorizontalAlignment="Left" Margin="368,480,0,0" VerticalAlignment="Top" Height="95" Width="280">
+                        <Grid>
+                            <CheckBox x:Name="businessesMealBreakfastCheckBox" Content="Breakfast" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesMealBrunchCheckBox" Content="Brunch" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesMealLunchCheckBox" Content="Lunch" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesMealDinnerCheckBox" Content="Dinner" Margin="183,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="55"/>
+                            <CheckBox x:Name="businessesMealDessertCheckBox" Content="Dessert" Margin="183,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="59"/>
+                            <CheckBox x:Name="businessesMealLateNightCheckBox" Content="Late Night" Margin="183,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="businessesStatisticsGroupBox" Header="Statistics" Margin="368,651,0,20" HorizontalAlignment="Left" Width="280">
+                        <Grid>
+                            <Button x:Name="businessesStatisticsCheckinsButton" Content="Show Checkins" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                            <Button x:Name="businessesStatisticsReviewsButton" Content="Show Reviews" Margin="10,35,10,0" VerticalAlignment="Top"/>
+                            <Button x:Name="businessesStatisticsCountButton" Content="Show Number of Businesses per Postal Code" Margin="10,60,10,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="businessesSortGroupBox" Header="Sort By" HorizontalAlignment="Left" Margin="368,580,0,0" Width="280" Height="66" VerticalAlignment="Top">
+                        <ComboBox x:Name="comboBox" Margin="10,10,10,0" Height="22" VerticalAlignment="Top"/>
+                    </GroupBox>
+
+                    <GroupBox x:Name="businessesBusinessesGroupBox" Header="Business" Margin="653,10,10,0" Height="465" VerticalAlignment="Top">
                         <Grid>
                             <DataGrid x:Name="businessesBusinessesBusinessesDataGrid" Margin="10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="businessesReviewGroupBox" Header="Review" Margin="653,480,10,20">
+                        <Grid>
+                            <TextBox x:Name="businessesReviewNameTextBox" Height="26" Padding="0,4,0,0" Margin="10,10,184,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            <TextBox x:Name="businessesReviewReviewTextBox" Padding="0,4,0,0" Margin="10,41,184,10" TextWrapping="Wrap"/>
+                            <Button x:Name="businessesReviewCheckinButton" Content="Checkin" Margin="0,10,10,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Right" Width="169"/>
+                            <Button x:Name="businessesReviewReviewButton" Content="Add Review" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="169"/>
+                            <Label x:Name="label" Content="Rating" Margin="0,41,135,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44"/>
+                            <ComboBox x:Name="comboBox1" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
