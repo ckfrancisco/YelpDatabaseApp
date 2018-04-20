@@ -14,16 +14,17 @@
                     <GroupBox x:Name="usersUserGroupBox" Header="Select User" Padding="10" Margin="10,10,0,0" Height="162" VerticalAlignment="Top" HorizontalAlignment="Left" Width="348">
                         <Grid>
                             <Label x:Name="usersUserNameLabel" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <TextBox x:Name="usersUserNameTextBox" HorizontalAlignment="Left" Height="26" Padding="0,4,0,0" Margin="54,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256"/>
+                            <TextBox x:Name="usersUserNameTextBox" HorizontalAlignment="Left" Height="26" Padding="0,4,0,0" Margin="54,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" TextChanged="usersUserNameTextBox_TextChanged"/>
 
                             <Label x:Name="usersUserIDLabel" Content="User ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,31,0,0"/>
-                            <ComboBox x:Name="usersUserIDComboBox" HorizontalAlignment="Left" Margin="54,31,0,0" VerticalAlignment="Top" Width="256" Height="26"/>
+                            <ComboBox x:Name="usersUserIDComboBox" HorizontalAlignment="Left" Margin="54,31,0,0" VerticalAlignment="Top" Width="256" Height="26" SelectionChanged="usersUserIDComboBox_SelectionChanged"/>
                         </Grid>
                     </GroupBox>
 
                     <GroupBox x:Name="usersFriendsGroupBox" Header="Friends" Margin="10,177,0,10" HorizontalAlignment="Left" Width="348">
                         <Grid>
-                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10,10,10,35" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <Button x:Name="usersFriendsRemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="10,542,0,0" VerticalAlignment="Top" Width="316"/>
                         </Grid>
                     </GroupBox>
 
