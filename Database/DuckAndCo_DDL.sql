@@ -37,8 +37,8 @@ CREATE TABLE Attributes (
 CREATE TABLE Hours (
     bid     VARCHAR(255),
     day     VARCHAR(255),
-    open    VARCHAR(5)      NOT NULL,
-    close   VARCHAR(5)      NOT NULL,
+    open    TIME            NOT NULL,
+    close   TIME            NOT NULL,
 
     PRIMARY KEY (bid, day),
     FOREIGN KEY (bid) REFERENCES Businesses (bid)
