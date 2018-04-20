@@ -497,14 +497,29 @@ namespace DuckAndCo_YelpApp
                     if (usersUserIDComboBox.SelectedItem != null)
                     {
                         cmd.Connection = connection;
-                        cmd.CommandText = "SELECT users.name, businesses.name, businesses.city, reviews.text, reviews.date " +
-                                          "FROM businesses, reviews,users, (SELECT fid FROM friends WHERE uid='" + usersUserIDComboBox.SelectedItem.ToString() + "') as userFriends " +
-                                          "WHERE users.uid=userFriends.fid AND users.uid = reviews.uid AND businesses.bid = reviews.bid " +
-                                          "ORDER BY reviews.uid, reviews.date DESC;";
-
+                        cmd.CommandText = "SELECT " +
+                                              "users.name, " +
+                                              "businesses.name, " +
+                                              "businesses.city, " +
+                                              "reviews.text, " +
+                                              "reviews.date " +
+                                          "FROM " +
+                                              "users, " +
+                                              "(SELECT fid FROM friends WHERE uid = '" + usersUserIDComboBox.SelectedItem.ToString() + "') as friends, " +
+                                              "reviews, " +
+                                              "(SELECT uid, MAX(date)AS date FROM reviews WHERE uid IN (SELECT fid from friends) GROUP BY uid) as latestreviewperuser, " +
+                                              "businesses " +
+                                          "WHERE " +
+                                              "users.uid = friends.fid AND " +
+                                              "users.uid = reviews.uid AND " +
+                                              "businesses.bid = reviews.bid AND " +
+                                              "users.uid = latestreviewperuser.uid AND " +
+                                              "reviews.date = latestreviewperuser.date " +
+                                          "ORDER BY " +
+                                              "users.uid;";
                         using (var reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read()) //gets all
+                            while (reader.Read())
                             {
                                 usersReviewsReviewsDataGrid.Items.Add(new Review() { userName = reader.GetString(0), businessName = reader.GetString(1), businessCity = reader.GetString(2), text = reader.GetString(3), date = reader.GetDate(4).ToString() });
                             }
