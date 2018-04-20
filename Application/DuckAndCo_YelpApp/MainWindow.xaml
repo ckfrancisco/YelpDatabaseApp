@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DuckAndCo_YelpApp"
         mc:Ignorable="d"
-        Title="DuckAndCo_YelpApp" Height="840" Width="1445" MinWidth="1445" MinHeight="840">
+        Title="DuckAndCo_YelpApp" Height="930" Width="1445" MinWidth="1445" MinHeight="930">
     <Grid>
         <TabControl>
 
@@ -23,8 +23,8 @@
 
                     <GroupBox x:Name="usersFriendsGroupBox" Header="Friends" Margin="10,177,0,10" HorizontalAlignment="Left" Width="348">
                         <Grid>
-                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10,10,10,35" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
-                            <Button x:Name="usersFriendsRemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="10,542,0,0" VerticalAlignment="Top" Width="316"/>
+                            <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10,10,10,38" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <Button x:Name="usersFriendsRemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="10,0,0,10" Width="316" Height="23" VerticalAlignment="Bottom"/>
                         </Grid>
                     </GroupBox>
 
@@ -139,7 +139,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <GroupBox x:Name="businessesStatisticsGroupBox" Header="Statistics" Margin="368,651,0,10" HorizontalAlignment="Left" Width="280">
+                    <GroupBox x:Name="businessesStatisticsGroupBox" Header="Statistics" Margin="368,651,0,0" HorizontalAlignment="Left" Width="280" Height="112" VerticalAlignment="Top">
                         <Grid>
                             <Button x:Name="businessesStatisticsCheckinsButton" Content="Show Checkins" Margin="10,10,10,0" VerticalAlignment="Top"/>
                             <Button x:Name="businessesStatisticsReviewsButton" Content="Show Reviews" Margin="10,35,10,0" VerticalAlignment="Top"/>
@@ -167,6 +167,8 @@
                             <ComboBox x:Name="comboBox1" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
                         </Grid>
                     </GroupBox>
+
+                    <Button x:Name="businessesSearchButton" Content="Search" Margin="368,768,0,0" Height="85" VerticalAlignment="Top" HorizontalAlignment="Left" Width="280"/>
                 </Grid>
             </TabItem>
 
