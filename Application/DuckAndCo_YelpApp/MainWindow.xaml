@@ -107,35 +107,35 @@
 
                     <GroupBox x:Name="businessesPriceGroupBox" Header="Filter By Price" HorizontalAlignment="Left" Margin="368,160,0,0" VerticalAlignment="Top" Height="75" Width="280">
                         <Grid>
-                            <CheckBox x:Name="businessesPrice0CheckBox" Content="$" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesPrice1CheckBox" Content="$$" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesPrice2CheckBox" Content="$$$" Margin="183,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="39"/>
-                            <CheckBox x:Name="businessesPrice3CheckBox" Content="$$$$" Margin="183,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46" RenderTransformOrigin="0.63,-0.933"/>
+                            <CheckBox x:Name="businessesPrice0CheckBox" Content="$" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Tag="1"/>
+                            <CheckBox x:Name="businessesPrice1CheckBox" Content="$$" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Tag="2"/>
+                            <CheckBox x:Name="businessesPrice2CheckBox" Content="$$$" Margin="183,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="39" Tag="3"/>
+                            <CheckBox x:Name="businessesPrice3CheckBox" Content="$$$$" Margin="183,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46" RenderTransformOrigin="0.63,-0.933" Tag="4"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="businessesAttributesGroupBox" Header="Filter By Attributes" HorizontalAlignment="Left" Margin="368,240,0,0" VerticalAlignment="Top" Height="235" Width="280">
                         <Grid>
-                            <CheckBox x:Name="businessesAttributesCreditCardsCheckBox" Content="Accepts Credit Cards" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesReservationsCheckBox" Content="Takes Reservations" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesWheelchairCheckBox" Content="Wheelchair Accessible" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesOutdoorCheckBox" Content="Outdoor Seating" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesKidsCheckBox" Content="Good for Kids" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesGroupsCheckBox" Content="Good for Groups" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesDeliveryCheckBox" Content="Delivery" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,-0.867"/>
-                            <CheckBox x:Name="businessesAttributesTakeOutCheckBox" Content="Take Out" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesWiFiCheckBox" Content="Free WiFi" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesAttributesBikeParkingCheckBox" Content="Bike Parking" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="businessesAttributesCreditCardsCheckBox" Content="Accepts Credit Cards" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Tag="BusinessAcceptsCreditCards"/>
+                            <CheckBox x:Name="businessesAttributesReservationsCheckBox" Content="Takes Reservations" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Tag="RestaurantsReservations"/>
+                            <CheckBox x:Name="businessesAttributesWheelchairCheckBox" Content="Wheelchair Accessible" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Tag="WheelchairAccessible"/>
+                            <CheckBox x:Name="businessesAttributesOutdoorCheckBox" Content="Outdoor Seating" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Tag="OutdoorSeating"/>
+                            <CheckBox x:Name="businessesAttributesKidsCheckBox" Content="Good for Kids" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Tag="GoodForKids"/>
+                            <CheckBox x:Name="businessesAttributesGroupsCheckBox" Content="Good for Groups" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Tag="RestaurantsGoodForGroups"/>
+                            <CheckBox x:Name="businessesAttributesDeliveryCheckBox" Content="Delivery" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.54,-0.867" Tag="RestaurantsDelivery"/>
+                            <CheckBox x:Name="businessesAttributesTakeOutCheckBox" Content="Take Out" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Tag="RestaurantsTakeOut"/>
+                            <CheckBox x:Name="businessesAttributesWiFiCheckBox" Content="Free WiFi" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Tag="WiFi"/>
+                            <CheckBox x:Name="businessesAttributesBikeParkingCheckBox" Content="Bike Parking" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Tag="BikeParking"/>
                         </Grid>
                     </GroupBox>
 
                     <GroupBox x:Name="businessesMealGroupBox" Header="Filter By Meal" HorizontalAlignment="Left" Margin="368,480,0,0" VerticalAlignment="Top" Height="95" Width="280">
                         <Grid>
-                            <CheckBox x:Name="businessesMealBreakfastCheckBox" Content="Breakfast" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesMealBrunchCheckBox" Content="Brunch" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesMealLunchCheckBox" Content="Lunch" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-                            <CheckBox x:Name="businessesMealDinnerCheckBox" Content="Dinner" Margin="183,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="55"/>
-                            <CheckBox x:Name="businessesMealDessertCheckBox" Content="Dessert" Margin="183,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="59"/>
-                            <CheckBox x:Name="businessesMealLateNightCheckBox" Content="Late Night" Margin="183,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+                            <CheckBox x:Name="businessesMealBreakfastCheckBox" Content="Breakfast" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Tag="breakfast"/>
+                            <CheckBox x:Name="businessesMealBrunchCheckBox" Content="Brunch" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Tag="brunch"/>
+                            <CheckBox x:Name="businessesMealLunchCheckBox" Content="Lunch" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Tag="lunch"/>
+                            <CheckBox x:Name="businessesMealDinnerCheckBox" Content="Dinner" Margin="183,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="55" Tag="dinner"/>
+                            <CheckBox x:Name="businessesMealDessertCheckBox" Content="Dessert" Margin="183,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="59" Tag="dessert"/>
+                            <CheckBox x:Name="businessesMealLateNightCheckBox" Content="Late Night" Margin="183,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Tag="latenight"/>
                         </Grid>
                     </GroupBox>
 
