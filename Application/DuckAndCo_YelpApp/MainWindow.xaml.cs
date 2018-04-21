@@ -548,5 +548,31 @@ namespace DuckAndCo_YelpApp
             }
         }
 
+        private void usersFriendsRemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (usersFriendsFriendsGrid.SelectedItem == null)
+                return;
+            Friend f1 = new Friend();
+            f1 = (Friend)usersFriendsFriendsGrid.SelectedItem;
+            string fid = f1.fid;
+
+            using (var connection = new NpgsqlConnection(buildConnectionString()))
+            {
+                connection.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = connection;
+                    cmd.CommandText = "DELETE FROM friends WHERE fid='" + fid + "' AND uid='" + usersUserIDComboBox.SelectedItem.ToString() + "';";
+                    using (var reader = cmd.ExecuteReader()){}
+
+                    //swapped the uid and fid
+                    cmd.CommandText = "DELETE FROM friends WHERE fid='" + usersUserIDComboBox.SelectedItem.ToString() + "' AND uid='" + fid + "';";
+                    using (var reader = cmd.ExecuteReader()){}
+                }
+                connection.Close();
+            }
+            usersFriendsFriendsGrid.Items.Clear();
+            fillFriendsGrid();
+        }
     }
 }

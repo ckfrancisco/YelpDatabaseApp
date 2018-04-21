@@ -24,7 +24,7 @@
                     <GroupBox x:Name="usersFriendsGroupBox" Header="Friends" Margin="10,177,0,10" HorizontalAlignment="Left" Width="348">
                         <Grid>
                             <DataGrid x:Name="usersFriendsFriendsGrid" Margin="10,10,10,38" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
-                            <Button x:Name="usersFriendsRemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="10,0,0,10" Width="316" Height="23" VerticalAlignment="Bottom"/>
+                            <Button x:Name="usersFriendsRemoveButton" Content="Remove" HorizontalAlignment="Left" Margin="10,0,0,10" Width="316" Height="23" VerticalAlignment="Bottom" Click="usersFriendsRemoveButton_Click"/>
                         </Grid>
                     </GroupBox>
 
