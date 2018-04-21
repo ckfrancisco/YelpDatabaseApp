@@ -32,7 +32,7 @@ namespace DuckAndCo_YelpApp
 
         private string buildConnectionString()
         {
-            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=123;";
+            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=password;";
         }
 
         public void populateComboBoxes()
@@ -68,6 +68,7 @@ namespace DuckAndCo_YelpApp
 
         public void populateBusinessesOpenDayComboBox()
         {
+            businessesOpenDayComboBox.Items.Add("");
             businessesOpenDayComboBox.Items.Add("Sunday");
             businessesOpenDayComboBox.Items.Add("Monday");
             businessesOpenDayComboBox.Items.Add("Tuesday");
@@ -75,10 +76,13 @@ namespace DuckAndCo_YelpApp
             businessesOpenDayComboBox.Items.Add("Thursday");
             businessesOpenDayComboBox.Items.Add("Friday");
             businessesOpenDayComboBox.Items.Add("Saturday");
+
+            businessesOpenDayComboBox.SelectedIndex = 0;
         }
 
         public void populateBusinessesOpenFromComboBox()
         {
+            businessesOpenFromComboBox.Items.Add("");
             businessesOpenFromComboBox.Items.Add("00:00");
             businessesOpenFromComboBox.Items.Add("01:00");
             businessesOpenFromComboBox.Items.Add("02:00");
@@ -103,10 +107,13 @@ namespace DuckAndCo_YelpApp
             businessesOpenFromComboBox.Items.Add("21:00");
             businessesOpenFromComboBox.Items.Add("22:00");
             businessesOpenFromComboBox.Items.Add("23:00");
+
+            businessesOpenFromComboBox.SelectedIndex = 0;
         }
 
         public void populateBusinessesOpenToComboBox()
         {
+            businessesOpenToComboBox.Items.Add("");
             businessesOpenToComboBox.Items.Add("00:00");
             businessesOpenToComboBox.Items.Add("01:00");
             businessesOpenToComboBox.Items.Add("02:00");
@@ -131,6 +138,8 @@ namespace DuckAndCo_YelpApp
             businessesOpenToComboBox.Items.Add("21:00");
             businessesOpenToComboBox.Items.Add("22:00");
             businessesOpenToComboBox.Items.Add("23:00");
+
+            businessesOpenToComboBox.SelectedIndex = 0;
         }
 
         public void populateDataGrids()
@@ -237,7 +246,7 @@ namespace DuckAndCo_YelpApp
                 {
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT distinct city " +
-                                      "FROM businesses " + 
+                                      "FROM businesses " +
                                       "WHERE state='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' " +
                                       "ORDER BY city;";
 
@@ -270,7 +279,7 @@ namespace DuckAndCo_YelpApp
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT distinct postalcode " +
                                       "FROM businesses " +
-                                      "WHERE state='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' AND " + 
+                                      "WHERE state='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' AND " +
                                             "city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "';";
 
                     using (var reader = cmd.ExecuteReader())
@@ -316,19 +325,6 @@ namespace DuckAndCo_YelpApp
                         while (reader.Read())
                         {
                             categories.Add(reader.GetString(0));
-                        }
-                    }
-
-                    cmd.CommandText = "SELECT name, state, city, postalcode " +
-                                      "FROM businesses " +
-                                      "WHERE city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
-                                            "postalcode='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "';";
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            businessesBusinessesBusinessesDataGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
                         }
                     }
                 }
@@ -514,27 +510,89 @@ namespace DuckAndCo_YelpApp
                 using (var cmd = new NpgsqlCommand())
                 {
                     string inString = "";
+
+                    if (businessesOpenDayComboBox.SelectedItem.ToString() != "" && businessesOpenFromComboBox.SelectedItem.ToString() != "" && businessesOpenToComboBox.SelectedItem.ToString() != "")
+                    {
+                        inString += "bid IN (SELECT bid " +
+                                            "FROM hours " +
+                                            "WHERE " +
+                                                "hours.day = '" + businessesOpenDayComboBox.SelectedItem.ToString() + "' AND " +
+                                                "hours.open <= '" + businessesOpenFromComboBox.SelectedItem.ToString() + "' AND " +
+                                                "hours.close >= '" + businessesOpenToComboBox.SelectedItem.ToString() + "') AND ";
+                    }
+
                     if (businessesCategoriesCategoriesListBox.SelectedItem != null)
                     {
                         foreach (var category in businessesCategoriesCategoriesListBox.SelectedItems)
                         {
-                            inString += "bid IN (SELECT bid FROM categories WHERE categories.name='";
-                            inString += category.ToString();
-                            inString += "') AND ";
+                            inString += "bid IN (SELECT bid " +
+                                        "FROM categories " +
+                                        "WHERE categories.name = '" + category.ToString() + "') AND ";
                         }
-                        inString = inString.Substring(0, inString.Length - 4);
-
                     }
+
+                    Grid businessesPriceGrid = businessesPriceGroupBox.Content as Grid;
+                    string priceString = "";
+                    foreach (CheckBox price in businessesPriceGrid.Children)
+                    {
+                        if (price.IsChecked.Value)
+                        {
+                            if (priceString == "")
+                            {
+                                priceString += "bid IN (SELECT bid " +
+                                                "FROM attributes " +
+                                                "WHERE " +
+                                                    "attributes.name = 'RestaurantsPriceRange2' AND (";
+                            }
+
+                            priceString += "attributes.value = '" + price.Tag.ToString() + "' OR ";
+                        }
+                    }
+
+                    if (priceString != "")
+                    {
+                        priceString = priceString.Substring(0, priceString.Length - 4);
+                        priceString += ")) AND ";
+
+                        inString += priceString;
+                    }
+
+                    Grid businessesAttributesGrid = businessesAttributesGroupBox.Content as Grid;
+                    foreach (CheckBox attribute in businessesAttributesGrid.Children)
+                    {
+                        if (attribute.IsChecked.Value)
+                        {
+                            inString += "bid IN (SELECT bid " +
+                                                "FROM attributes " +
+                                                "WHERE " +
+                                                    "attributes.name = '" + attribute.Tag.ToString() + "' AND " +
+                                                    "attributes.value = 'True') AND ";
+                        }
+                    }
+
+                    Grid businessesMealGrid = businessesMealGroupBox.Content as Grid;
+                    foreach (CheckBox meal in businessesMealGrid.Children)
+                    {
+                        if (meal.IsChecked.Value)
+                        {
+                            inString += "bid IN (SELECT bid " +
+                                                "FROM attributes " +
+                                                "WHERE " +
+                                                    "attributes.name = '" + meal.Tag.ToString() + "' AND " +
+                                                    "attributes.value = 'True') AND ";
+                        }
+                    }
+
+
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT name, state, city, postalcode " +
                                       "FROM businesses " +
-                                      "WHERE city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
-                                            "postalcode='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " + inString + ";";
-                    if (businessesCategoriesCategoriesListBox.SelectedItem == null)
-                    {
-                        cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 5);
-                        cmd.CommandText += ";";
-                    }
+                                      "WHERE city ='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
+                                            "postalcode ='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " + inString;
+
+                    cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 5);
+                    cmd.CommandText += "ORDER BY name;";
+
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -563,11 +621,11 @@ namespace DuckAndCo_YelpApp
                 {
                     cmd.Connection = connection;
                     cmd.CommandText = "DELETE FROM friends WHERE fid='" + fid + "' AND uid='" + usersUserIDComboBox.SelectedItem.ToString() + "';";
-                    using (var reader = cmd.ExecuteReader()){}
+                    using (var reader = cmd.ExecuteReader()) { }
 
                     //swapped the uid and fid
                     cmd.CommandText = "DELETE FROM friends WHERE fid='" + usersUserIDComboBox.SelectedItem.ToString() + "' AND uid='" + fid + "';";
-                    using (var reader = cmd.ExecuteReader()){}
+                    using (var reader = cmd.ExecuteReader()) { }
                 }
                 connection.Close();
             }
