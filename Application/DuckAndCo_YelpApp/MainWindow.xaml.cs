@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Npgsql;
 
 using DuckAndCo_YelpApp.DBEntities;
+using System.Windows.Controls.Primitives;
 
 namespace DuckAndCo_YelpApp
 {
@@ -28,11 +29,12 @@ namespace DuckAndCo_YelpApp
             InitializeComponent();
             populateComboBoxes();
             populateDataGrids();
+
         }
 
         private string buildConnectionString()
         {
-            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=password;";
+            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=asdf1234;";
         }
 
         public void populateComboBoxes()
@@ -631,6 +633,82 @@ namespace DuckAndCo_YelpApp
             }
             usersFriendsFriendsGrid.Items.Clear();
             fillFriendsGrid();
+        }
+
+        private void businessesBusinessesBusinessesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            businessesPrice3CheckBox.IsChecked = true;
+        }
+
+        private void businessesReviewNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void businessesReviewReviewButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void businessesBusinessesBusinessesDataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void RatingValue_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void businessesReviewReviewButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(RatingValue.SelectedItem == null || !(string.IsNullOrEmpty(businessesReviewReviewTextBox.Text)) || !(string.IsNullOrEmpty(businessesReviewNameTextBox.Text)))
+            {
+                return;
+            }
+            else
+            {
+                using (var connection = new NpgsqlConnection(buildConnectionString()))
+                {
+                    string bid = "";
+                    connection.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                            cmd.Connection = connection;
+                            //need to clean for sql 
+                            cmd.CommandText = "select bid from businesses where name = '" + businessesReviewNameTextBox.Text.ToString() + "';";
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    bid = reader.GetString(0);
+                                }
+                            }
+                        
+                    }
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                            cmd.Connection = connection;
+                            //need to clean for sql 
+                            String uid = "0";
+                            String rid = "0";
+                            DateTime dateTime = DateTime.UtcNow.Date;
+                            cmd.CommandText = "INSERT INTO " +
+                            "Reviews (rid, uid, bid, text, date, stars, funny, useful, cool) " +
+                            "VALUES ('" + rid + "','" + uid + "','" + bid + "','" + businessesReviewReviewTextBox.Text.ToString() + "','" + dateTime.ToString("dd/MM/yyyy") + "','" + RatingValue.Text.ToString() + "','" + "0" + "','" + "0" + "','" + "0" + "');";
+
+                            cmd.ExecuteReader();
+                        
+                    }
+
+                    connection.Close();
+                }
+            }
         }
     }
 }

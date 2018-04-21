@@ -153,7 +153,12 @@
 
                     <GroupBox x:Name="businessesBusinessesGroupBox" Header="Business" Margin="653,10,10,0" Height="465" VerticalAlignment="Top">
                         <Grid>
-                            <DataGrid x:Name="businessesBusinessesBusinessesDataGrid" Margin="10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="181*"/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid x:Name="businessesBusinessesBusinessesDataGrid" Margin="10" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" SelectionChanged="businessesBusinessesBusinessesDataGrid_SelectionChanged_1" Grid.ColumnSpan="2"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="325.767,350,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Column="1"/>
                         </Grid>
                     </GroupBox>
 
@@ -162,9 +167,16 @@
                             <TextBox x:Name="businessesReviewNameTextBox" Height="26" Padding="0,4,0,0" Margin="10,10,184,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                             <TextBox x:Name="businessesReviewReviewTextBox" Padding="0,4,0,0" Margin="10,41,184,10" TextWrapping="Wrap"/>
                             <Button x:Name="businessesReviewCheckinButton" Content="Checkin" Margin="0,10,10,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Right" Width="169"/>
-                            <Button x:Name="businessesReviewReviewButton" Content="Add Review" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="169"/>
+                            <Button x:Name="businessesReviewReviewButton" Content="Add Review" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="169" Click="businessesReviewReviewButton_Click_1"/>
                             <Label x:Name="label" Content="Rating" Margin="0,41,135,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44"/>
-                            <ComboBox x:Name="comboBox1" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
+                            <ComboBox x:Name="RatingValue" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120" SelectionChanged="RatingValue_SelectionChanged">
+                                <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="118"/>
+                            </ComboBox>
+                            <Label x:Name="Status" Content="" Margin="0,97,135,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44"/>
                         </Grid>
                     </GroupBox>
 
