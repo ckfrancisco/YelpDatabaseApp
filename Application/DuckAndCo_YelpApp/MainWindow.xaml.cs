@@ -32,7 +32,7 @@ namespace DuckAndCo_YelpApp
 
         private string buildConnectionString()
         {
-            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=password;";
+            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=123;";
         }
 
         public void populateComboBoxes()
@@ -339,42 +339,6 @@ namespace DuckAndCo_YelpApp
             businessesCategoriesCategoriesListBox.ItemsSource = categories;
         }
 
-        private void businessesCategoriesCategoriesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            businessesBusinessesBusinessesDataGrid.Items.Clear();
-            if (businessesLocationPostalCodeComboBox.SelectedItem == null)
-                return;
-            if (businessesCategoriesCategoriesListBox.SelectedItem == null)
-                return;
-
-            using (var connection = new NpgsqlConnection(buildConnectionString()))
-            {
-                connection.Open();
-                using (var cmd = new NpgsqlCommand())
-                {
-                    cmd.Connection = connection;
-                    cmd.CommandText = "SELECT name, state, city, postalcode " +
-                                      "FROM businesses " +
-                                      "WHERE city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
-                                            "postalcode='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " +
-                                            "bid IN " +
-                                                  "(SELECT bid " +
-                                                  "FROM categories " +
-                                                  "WHERE categories.name='" + businessesCategoriesCategoriesListBox.SelectedItem.ToString() + "');";
-
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            businessesBusinessesBusinessesDataGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
-                        }
-                    }
-                }
-
-                connection.Close();
-            }
-        }
 
         private void usersUserNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -537,5 +501,52 @@ namespace DuckAndCo_YelpApp
             fillFriendsGrid();
             fillReviewsGrid();
         }
+
+        private void businessesSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (businessesLocationPostalCodeComboBox.SelectedItem == null)
+                return;
+            businessesBusinessesBusinessesDataGrid.Items.Clear();
+
+            using (var connection = new NpgsqlConnection(buildConnectionString()))
+            {
+                connection.Open();
+                using (var cmd = new NpgsqlCommand())
+                {
+                    string inString = "";
+                    if (businessesCategoriesCategoriesListBox.SelectedItem != null)
+                    {
+                        foreach (var category in businessesCategoriesCategoriesListBox.SelectedItems)
+                        {
+                            inString += "bid IN (SELECT bid FROM categories WHERE categories.name='";
+                            inString += category.ToString();
+                            inString += "') AND ";
+                        }
+                        inString = inString.Substring(0, inString.Length - 4);
+
+                    }
+                    cmd.Connection = connection;
+                    cmd.CommandText = "SELECT name, state, city, postalcode " +
+                                      "FROM businesses " +
+                                      "WHERE city='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' AND " +
+                                            "postalcode='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " + inString + ";";
+                    if (businessesCategoriesCategoriesListBox.SelectedItem == null)
+                    {
+                        cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 5);
+                        cmd.CommandText += ";";
+                    }
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            businessesBusinessesBusinessesDataGrid.Items.Add(new Business() { name = reader.GetString(0), state = reader.GetString(1), city = reader.GetString(2), postalCode = reader.GetString(3) });
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+        }
+
     }
 }

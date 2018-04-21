@@ -101,7 +101,7 @@
 
                     <GroupBox x:Name="businessesCategoriesGroupBox" Header="Categories" Margin="10,160,0,10" HorizontalAlignment="Left" Width="353">
                         <Grid>
-                            <ListBox x:Name="businessesCategoriesCategoriesListBox" Margin="10" SelectionChanged="businessesCategoriesCategoriesListBox_SelectionChanged" SelectionMode="Multiple"/>
+                            <ListBox x:Name="businessesCategoriesCategoriesListBox" Margin="10" SelectionMode="Multiple"/>
                         </Grid>
                     </GroupBox>
 
@@ -168,7 +168,7 @@
                         </Grid>
                     </GroupBox>
 
-                    <Button x:Name="businessesSearchButton" Content="Search" Margin="368,768,0,0" Height="85" VerticalAlignment="Top" HorizontalAlignment="Left" Width="280"/>
+                    <Button x:Name="businessesSearchButton" Content="Search" Margin="368,768,0,0" Height="85" VerticalAlignment="Top" HorizontalAlignment="Left" Width="280" Click="businessesSearchButton_Click"/>
                 </Grid>
             </TabItem>
 
