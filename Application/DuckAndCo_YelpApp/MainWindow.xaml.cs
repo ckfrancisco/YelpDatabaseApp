@@ -43,6 +43,7 @@ namespace DuckAndCo_YelpApp
             populateBusinessesOpenDayComboBox();
             populateBusinessesOpenFromComboBox();
             populateBusinessesOpenToComboBox();
+            populateBusinessesSortComboBox();
         }
 
         public void populateBusinessesLocationStateComboBox()
@@ -103,6 +104,18 @@ namespace DuckAndCo_YelpApp
             businessesOpenToComboBox.SelectedIndex = 0;
         }
 
+        public void populateBusinessesSortComboBox()
+        {
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Business Name", Tag = "ORDER BY name" });
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Highest Rating", Tag = "ORDER BY stars DESC" });
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Most Reviews", Tag = "ORDER BY reviewCount DESC" });
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Best Review Rating", Tag = "ORDER BY reviewRating DESC" });
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Most Checkins", Tag = "ORDER BY numCheckins DESC" });
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Nearest", Tag = "ORDER BY distance DESC" });
+
+            businessesSortComboBox.SelectedIndex = 0;
+        }
+
         public void populateBusinessesReviewRatingComboBox()
         {
             for(int i = 1; i <= 5; i++)
@@ -145,7 +158,7 @@ namespace DuckAndCo_YelpApp
             DataGridTextColumn colBusinessDistance = new DataGridTextColumn();
             colBusinessDistance.Header = "Distance";
             colBusinessDistance.Binding = new Binding("distance");
-            colBusinessDistance.Width = 50;
+            colBusinessDistance.Width = 75;
             businessesBusinessesBusinessesDataGrid.Columns.Add(colBusinessDistance);
 
             DataGridTextColumn colBusinessStars = new DataGridTextColumn();
@@ -157,19 +170,19 @@ namespace DuckAndCo_YelpApp
             DataGridTextColumn colBusinessReviewCount = new DataGridTextColumn();
             colBusinessReviewCount.Header = "# of Reviews";
             colBusinessReviewCount.Binding = new Binding("reviewCount");
-            colBusinessReviewCount.Width = 50;
+            colBusinessReviewCount.Width = 100;
             businessesBusinessesBusinessesDataGrid.Columns.Add(colBusinessReviewCount);
 
             DataGridTextColumn colBusinessReviewRating = new DataGridTextColumn();
             colBusinessReviewRating.Header = "Avg. Review Rating";
             colBusinessReviewRating.Binding = new Binding("reviewRating");
-            colBusinessReviewRating.Width = 50;
+            colBusinessReviewRating.Width = 125;
             businessesBusinessesBusinessesDataGrid.Columns.Add(colBusinessReviewRating);
 
             DataGridTextColumn colBusinessNumCheckins = new DataGridTextColumn();
             colBusinessNumCheckins.Header = "# of Checkins";
             colBusinessNumCheckins.Binding = new Binding("numCheckins");
-            colBusinessNumCheckins.Width = 50;
+            colBusinessNumCheckins.Width = 100;
             businessesBusinessesBusinessesDataGrid.Columns.Add(colBusinessNumCheckins);
         }
 
@@ -641,7 +654,7 @@ namespace DuckAndCo_YelpApp
                                           "postalcode ='" + businessesLocationPostalCodeComboBox.SelectedItem.ToString() + "' AND " + inString;
 
                     cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 5);
-                    cmd.CommandText += "ORDER BY name;";
+                    cmd.CommandText += ((ComboBoxItem)businessesSortComboBox.SelectedItem).Tag.ToString() + ";";
 
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -747,6 +760,11 @@ namespace DuckAndCo_YelpApp
         {
             string name = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).name;
             businessesReviewNameTextBox.Text = name;
+        }
+
+        private void businessesReviewCheckinButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
