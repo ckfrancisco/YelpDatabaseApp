@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="DuckAndCo_YelpApp" Height="930" Width="1445" MinWidth="1445" MinHeight="930">
     <Grid>
-        <TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="1253*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.ColumnSpan="2" Margin="0,0,-0.334,-0.333">
 
             <TabItem Header="Users">
                 <Grid>

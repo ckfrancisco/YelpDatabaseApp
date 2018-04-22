@@ -34,7 +34,7 @@ namespace DuckAndCo_YelpApp
 
         private string buildConnectionString()
         {
-            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=password;";
+            return "Server=localhost; Database=yelpdb; User ID=postgres; Password=asdf1234;";
         }
 
         public void populateComboBoxes()
@@ -646,7 +646,9 @@ namespace DuckAndCo_YelpApp
                                           "stars, " +
                                           "reviewCount, " +
                                           "reviewRating, " +
-                                          "numCheckIns " +
+                                          "numCheckIns, " +
+                                          "latitude, " +
+                                          "longitude " +
                                       "FROM " +
                                           "businesses " +
                                       "WHERE " +
@@ -670,7 +672,8 @@ namespace DuckAndCo_YelpApp
                                 stars = reader.GetDouble(5),
                                 reviewCount = reader.GetInt32(6),
                                 reviewRating = reader.GetDouble(7),
-                                numCheckins = reader.GetInt32(8)
+                                numCheckins = reader.GetInt32(8),
+                                distance = distanceMiles(reader.GetDouble(9), reader.GetDouble(10))
                             });
                         }
                     }
@@ -829,6 +832,25 @@ namespace DuckAndCo_YelpApp
                     connection.Close();
                 }
             }
+        }
+        private double distanceMiles(double x, double y)
+        {
+            double distance = 0;
+            double a = 0;
+            double b = 0;
+
+            if (!(string.IsNullOrEmpty(usersLocationLatitudeTextBox.Text) || !(string.IsNullOrEmpty(usersLocationLongitudeTextBox.Text))))
+            {
+                if(double.TryParse(usersLocationLatitudeTextBox.Text.ToString(), out a) && double.TryParse(usersLocationLongitudeTextBox.Text.ToString(), out b))
+                {
+                    a = double.Parse(usersLocationLatitudeTextBox.Text.ToString());
+                    b = double.Parse(usersLocationLatitudeTextBox.Text.ToString());
+                }
+            }
+            distance = Math.Sqrt(((x-a)*(x-a))+((y-b)*(y-b)));
+
+
+            return distance*55;
         }
     }
 }
