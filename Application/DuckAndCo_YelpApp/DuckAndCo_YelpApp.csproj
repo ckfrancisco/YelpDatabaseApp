@@ -69,8 +69,8 @@
     </Compile>
     <Compile Include="DBEntities\Business.cs" />
     <Compile Include="DBEntities\Checkin.cs" />
-    <Compile Include="DBEntities\Friend.cs" />
     <Compile Include="DBEntities\Review.cs" />
+    <Compile Include="DBEntities\User.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
