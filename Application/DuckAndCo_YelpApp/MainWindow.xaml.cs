@@ -758,13 +758,77 @@ namespace DuckAndCo_YelpApp
 
         private void businessesBusinessesBusinessesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string name = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).name;
-            businessesReviewNameTextBox.Text = name;
+            if (businessesBusinessesBusinessesDataGrid.SelectedItem == null)
+            {
+                businessesReviewNameTextBox.Text = "";
+            }
+
+            else
+            {
+                string name = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).name;
+                businessesReviewNameTextBox.Text = name;
+            }
         }
 
         private void businessesReviewCheckinButton_Click(object sender, RoutedEventArgs e)
         {
+            if (businessesBusinessesBusinessesDataGrid.SelectedItem == null)
+            {
+                return;
+            }
 
+            else
+            {
+                using (var connection = new NpgsqlConnection(buildConnectionString()))
+                {
+                    connection.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid;
+                        string checkinString = "";
+                        string day = "Monday"; //DateTime.UtcNow.DayOfWeek.ToString();
+                        TimeSpan time = new TimeSpan(0, 0, 0); //DateTime.UtcNow.ToLocalTime().TimeOfDay;
+
+                        TimeSpan start = new TimeSpan(6, 0, 0);
+                        TimeSpan end = new TimeSpan(11, 59, 59);
+                        if (time >= start && time <= end)
+                        {
+                            checkinString = "SET morning = morning + 1 ";
+                        }
+
+                        start = new TimeSpan(12, 0, 0);
+                        end = new TimeSpan(16, 59, 59);
+                        if (time >= start && time <= end)
+                        {
+                            checkinString = "SET afternoon = afternoon + 1 ";
+                        }
+
+                        start = new TimeSpan(17, 0, 0);
+                        end = new TimeSpan(22, 59, 59);
+                        if (time >= start && time <= end)
+                        {
+                            checkinString = "SET evening = evening + 1 ";
+                        }
+
+                        else
+                        {
+                            checkinString = "SET night = night + 1 ";
+                        }
+
+                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE " +
+                                              "checkins " +
+                                           checkinString +
+                                           "WHERE " +
+                                               "bid = '" + bid + "' AND " +
+                                               "day = '" + day + "';";
+                        cmd.ExecuteReader();
+
+                    }
+
+                    connection.Close();
+                }
+            }
         }
     }
 }
