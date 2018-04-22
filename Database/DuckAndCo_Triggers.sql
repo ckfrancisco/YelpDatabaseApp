@@ -16,7 +16,7 @@ END
 ' LANGUAGE plpgsql;
 
 CREATE TRIGGER updateBusinessesReviewTrigger
-AFTER INSERT ON Reviews
+AFTER INSERT OR UPDATE ON Reviews
 FOR EACH STATEMENT
     EXECUTE PROCEDURE updateBusinessReview();
 
@@ -36,6 +36,6 @@ END
 ' LANGUAGE plpgsql;
 
 CREATE TRIGGER updateBusinessesCheckInTrigger
-AFTER INSERT ON CheckIns
+AFTER INSERT OR UPDATE ON CheckIns
 FOR EACH STATEMENT
     EXECUTE PROCEDURE updateBusinessCheckIn();
