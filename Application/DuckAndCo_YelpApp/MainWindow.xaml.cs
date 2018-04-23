@@ -977,7 +977,7 @@ namespace DuckAndCo_YelpApp
                                                 "u.uid = r.uid AND " +
                                                 "r.bid = '" + bid + "' " +
                                             "ORDER BY " +
-                                                "r.date;";
+                                                "r.date DESC;";
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
