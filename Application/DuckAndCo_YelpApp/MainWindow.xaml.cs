@@ -727,7 +727,7 @@ namespace DuckAndCo_YelpApp
                         //need to clean for sql 
                         string uid = usersUserNameTextBox.Text;
                         string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid;
-                        string rid = "0";
+                        string rid = ridGeneration();
                         DateTime datetime = DateTime.UtcNow.Date;
                         cmd.CommandText = "INSERT INTO " +
                                               "reviews (rid, " +
@@ -851,6 +851,28 @@ namespace DuckAndCo_YelpApp
 
 
             return distance*55;
+        }
+        private String ridGeneration()
+        {
+            String x = "iDRXhARsx77_IpWhey58Gg";
+            int len = x.Length;
+            int i = 0;
+            int tChar = 'c';
+            Random rnd = new Random();
+            int rndnumber = rnd.Next();
+            x = "";
+            while (i < len)
+            {
+                rndnumber = rnd.Next();
+                tChar = rndnumber % 70;
+                if((tChar + 48) == ';')
+                {
+                    tChar++;
+                }
+                x += (char)(tChar + 48);
+                i++;
+            }
+            return x;
         }
     }
 }
