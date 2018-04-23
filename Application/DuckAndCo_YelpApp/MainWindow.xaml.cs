@@ -111,7 +111,7 @@ namespace DuckAndCo_YelpApp
             businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Most Reviews", Tag = "ORDER BY reviewCount DESC" });
             businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Best Review Rating", Tag = "ORDER BY reviewRating DESC" });
             businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Most Checkins", Tag = "ORDER BY numCheckins DESC" });
-            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Nearest", Tag = "ORDER BY distance DESC" });
+            businessesSortComboBox.Items.Add(new ComboBoxItem() { Content = "Nearest", Tag = "ORDER BY distance" });
 
             businessesSortComboBox.SelectedIndex = 0;
         }
@@ -431,7 +431,7 @@ namespace DuckAndCo_YelpApp
                             while (reader.Read())
                             {
                                 usersInfoNameTextBox.Text = (reader.GetString(1));
-                                usersInfoStarsTextBox.Text = (reader.GetDouble(5).ToString());
+                                usersInfoStarsTextBox.Text = (Math.Round(reader.GetDouble(5), 2).ToString());
                                 usersInfoFansTextBox.Text = (reader.GetInt16(4).ToString());
                                 usersInfoSinceTextBox.Text = (reader.GetDate(2).ToString());
                                 usersInfoFunnyTextBox.Text = (reader.GetInt16(6).ToString());
@@ -478,7 +478,7 @@ namespace DuckAndCo_YelpApp
                         {
                             while (reader.Read())
                             {
-                                usersFriendsFriendsGrid.Items.Add(new User() { name = reader.GetString(1), fid = reader.GetString(0), stars = reader.GetDouble(5).ToString(), date = reader.GetDate(2).ToString() });
+                                usersFriendsFriendsGrid.Items.Add(new User() { name = reader.GetString(1), fid = reader.GetString(0), stars = Math.Round(reader.GetDouble(5), 2).ToString(), date = reader.GetDate(2).ToString() });
                             }
                         }
                     }
@@ -636,6 +636,19 @@ namespace DuckAndCo_YelpApp
                     }
 
 
+                    double latitude = 0;
+                    double longitude = 0;
+
+                    if(!string.IsNullOrEmpty(usersLocationLatitudeTextBox.Text))
+                    {
+                        Double.TryParse(usersLocationLatitudeTextBox.Text, out latitude);
+                    }
+
+                    if (!string.IsNullOrEmpty(usersLocationLongitudeTextBox.Text))
+                    {
+                        Double.TryParse(usersLocationLongitudeTextBox.Text, out longitude);
+                    }
+
                     cmd.Connection = connection;
                     cmd.CommandText = "SELECT " +
                                           "bid, " +
@@ -643,6 +656,8 @@ namespace DuckAndCo_YelpApp
                                           "address, " +
                                           "city, " +
                                           "state, " +
+                                          "(2 * 3961 * asin(sqrt((sin(radians((latitude - " + latitude + ") / 2))) ^ 2 + " +
+                                          "cos(radians(" + latitude + ")) * cos(radians(latitude)) * (sin(radians((longitude - " + longitude + ") / 2))) ^ 2))) AS distance, " +
                                           "stars, " +
                                           "reviewCount, " +
                                           "reviewRating, " +
@@ -667,10 +682,11 @@ namespace DuckAndCo_YelpApp
                                 address = reader.GetString(2),
                                 city = reader.GetString(3),
                                 state = reader.GetString(4),
-                                stars = reader.GetDouble(5),
-                                reviewCount = reader.GetInt32(6),
-                                reviewRating = reader.GetDouble(7),
-                                numCheckins = reader.GetInt32(8)
+                                distance = Math.Round(reader.GetDouble(5), 2),
+                                stars = Math.Round(reader.GetDouble(6), 2),
+                                reviewCount = reader.GetInt32(7),
+                                reviewRating = Math.Round(reader.GetDouble(8), 2),
+                                numCheckins = reader.GetInt32(9)
                             });
                         }
                     }
@@ -958,7 +974,7 @@ namespace DuckAndCo_YelpApp
                                                 "u.uid = r.uid AND " +
                                                 "r.bid = '" + bid + "' " +
                                             "ORDER BY " +
-                                                "u.uid;";
+                                                "r.date;";
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
