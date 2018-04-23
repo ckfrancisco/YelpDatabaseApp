@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="DuckAndCo_YelpApp" Height="930" Width="1445" MinWidth="1445" MinHeight="930">
     <Grid>
-        <TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="1253*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.ColumnSpan="2" Margin="0,0,-0.334,-0.333">
 
             <TabItem Header="Users">
                 <Grid>
@@ -164,7 +168,13 @@
                             <Button x:Name="businessesReviewCheckinButton" Content="Checkin" Margin="0,10,10,0" VerticalAlignment="Top" Height="26" HorizontalAlignment="Right" Width="169" Click="businessesReviewCheckinButton_Click"/>
                             <Button x:Name="businessesReviewReviewButton" Content="Add Review" Margin="0,72,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="169" Click="businessesReviewReviewButton_Click"/>
                             <Label x:Name="businessesReviewReviewLabel" Content="Rating" Margin="0,41,135,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44"/>
-                            <ComboBox x:Name="businessesReviewRatingComboBox" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
+                            <ComboBox x:Name="businessesReviewRatingComboBox" Margin="0,41,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120">
+                                <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="118"/>
+                                <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="118"/>
+                            </ComboBox>
                             <Label x:Name="Status" Content="" Margin="0,97,135,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44"/>
                         </Grid>
                     </GroupBox>

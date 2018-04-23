@@ -661,7 +661,9 @@ namespace DuckAndCo_YelpApp
                                           "stars, " +
                                           "reviewCount, " +
                                           "reviewRating, " +
-                                          "numCheckIns " +
+                                          "numCheckIns, " +
+                                          "latitude, " +
+                                          "longitude " +
                                       "FROM " +
                                           "businesses " +
                                       "WHERE " +
@@ -740,7 +742,8 @@ namespace DuckAndCo_YelpApp
                         //need to clean for sql 
                         string uid = usersUserNameTextBox.Text;
                         string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid;
-                        string rid = "0";
+                        string rid = ridGeneration();
+
                         DateTime datetime = DateTime.UtcNow.Date;
                         cmd.CommandText = "INSERT INTO " +
                                               "reviews (rid, " +
@@ -1000,5 +1003,68 @@ namespace DuckAndCo_YelpApp
                 gridWindow.Show();
             }
         }
+
+        private String ridGeneration()
+        {
+            String x = "iDRXhARsx77_IpWhey58Gg";
+            int len = x.Length;
+            int i = 0;
+            int tChar = 'c';
+            Random rnd = new Random();
+            int rndnumber = rnd.Next();
+
+            while (true)
+            {
+                i = 0;
+                x = "";
+                while (i < len)
+                {
+                    rndnumber = rnd.Next();
+                    tChar = rndnumber % 70;
+                    if ((tChar + 48) == ';')
+                    {
+                        tChar++;
+                    }
+                    x += (char)(tChar + 48);
+                    i++;
+                }
+                if(checkRid(x) == true)
+                {
+                    return x;
+                }
+            }
+            
+        }
+        private bool checkRid(String x)
+        {
+
+            using (var connection = new NpgsqlConnection(buildConnectionString()))
+            {
+                if (usersUserIDComboBox.SelectedItem != null)
+                {
+                    connection.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = connection;
+                        cmd.CommandText = "Select * from reviews where rid = '" + x + "';";
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            { 
+                                if (reader.HasRows)
+                                {
+                                    connection.Close();
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+                connection.Close();
+            }
+            return true;
+        }
+
+
     }
 }

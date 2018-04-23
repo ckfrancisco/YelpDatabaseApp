@@ -19,7 +19,6 @@ D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Appl
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.pdb
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\Npgsql.dll
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\Npgsql.xml
-D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csprojResolveAssemblyReference.cache
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\MainWindow.g.cs
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\App.g.cs
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp_MarkupCompile.cache
