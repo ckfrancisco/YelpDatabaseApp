@@ -29,7 +29,6 @@ namespace DuckAndCo_YelpApp
             InitializeComponent();
             populateComboBoxes();
             populateDataGrids();
-
         }
 
         private string buildConnectionString()
@@ -43,6 +42,7 @@ namespace DuckAndCo_YelpApp
             populateBusinessesOpenDayComboBox();
             populateBusinessesOpenFromComboBox();
             populateBusinessesOpenToComboBox();
+            populateBusinessesReviewRatingComboBox();
             populateBusinessesSortComboBox();
         }
 
@@ -560,7 +560,7 @@ namespace DuckAndCo_YelpApp
                                             "WHERE " +
                                                 "hours.day = '" + businessesOpenDayComboBox.SelectedItem.ToString() + "' AND " +
                                                 "hours.open <= '" + businessesOpenFromComboBox.SelectedItem.ToString() + "' AND " +
-                                                "hours.close >= '" + businessesOpenToComboBox.SelectedItem.ToString() + "') AND ";
+                                                "(hours.close >= '" + businessesOpenToComboBox.SelectedItem.ToString() + "' OR hours.close = '00:00')) AND ";
                     }
 
                     if (businessesCategoriesCategoriesListBox.SelectedItem != null)
@@ -828,6 +828,160 @@ namespace DuckAndCo_YelpApp
 
                     connection.Close();
                 }
+            }
+        }
+
+        private void businessesStatisticsCheckinsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (businessesBusinessesBusinessesDataGrid.SelectedItem == null)
+            {
+                return;
+            }
+
+            else
+            {
+                Dictionary<string, int> checkins = new Dictionary<string, int>();
+
+                using (var connection = new NpgsqlConnection(buildConnectionString()))
+                {
+                    connection.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid;
+
+                        cmd.Connection = connection;
+                        cmd.CommandText = "SELECT " +
+                                              "day, " +
+                                              "SUM(morning + afternoon + evening + night) AS count " +
+                                           "FROM " + 
+                                              "checkins " +
+                                           "WHERE " +
+                                               "bid = '" + bid + "' " +
+                                           "GROUP BY " +
+                                               "day;";
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                checkins.Add(reader.GetString(0), reader.GetInt32(1));
+                            }
+                        }
+
+                    }
+
+                    connection.Close();
+                }
+
+                ChartWindow chartWindow = new ChartWindow("Checkins", "# of Checkins", checkins);
+                chartWindow.Show();
+            }
+        }
+
+        private void businessesStatisticsCountButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (businessesLocationCityComboBox.SelectedItem == null)
+            {
+                return;
+            }
+
+            else
+            {
+                Dictionary<string, int> checkins = new Dictionary<string, int>();
+
+                using (var connection = new NpgsqlConnection(buildConnectionString()))
+                {
+                    connection.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = connection;
+                        cmd.CommandText = "SELECT " +
+                                              "postalcode, " +
+                                              "COUNT(bid) as count " +
+                                           "FROM " +
+                                              "businesses " +
+                                           "WHERE " +
+                                               "state ='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' AND " +
+                                               "city ='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' " +
+                                           "GROUP BY " +
+                                               "postalcode;";
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                checkins.Add(reader.GetString(0), reader.GetInt32(1));
+                            }
+                        }
+
+                    }
+
+                    connection.Close();
+                }
+
+                ChartWindow chartWindow = new ChartWindow("Businesses per Postal Code", "# of Businesses", checkins);
+                chartWindow.Show();
+            }
+        }
+
+        private void businessesStatisticsReviewsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (businessesBusinessesBusinessesDataGrid.SelectedItem == null)
+            {
+                return;
+            }
+
+            else
+            {
+                List<Review> reviews = new List<Review>();
+
+                using (var connection = new NpgsqlConnection(buildConnectionString()))
+                {
+                    string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid;
+
+                    connection.Open();
+                    using (var cmd = new NpgsqlCommand())
+                    {
+                        cmd.Connection = connection;
+                        cmd.CommandText = "SELECT " +
+                                                "r.date, " +
+                                                "u.name, " +
+                                                "r.stars, " +
+                                                "r.text, " +
+                                                "r.funny, " +
+                                                "r.useful, " +
+                                                "r.cool " +
+                                            "FROM " +
+                                                "users AS u, " +
+                                                "reviews AS r " +
+                                            "WHERE " +
+                                                "u.uid = r.uid AND " +
+                                                "r.bid = '" + bid + "' " +
+                                            "ORDER BY " +
+                                                "u.uid;";
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                reviews.Add(new Review()
+                                {
+                                    date = reader.GetDate(0).ToString(),
+                                    userName = reader.GetString(1),
+                                    stars = reader.GetInt32(2),
+                                    text = reader.GetString(3),
+                                    funny = reader.GetInt32(4),
+                                    useful = reader.GetInt32(5),
+                                    cool = reader.GetInt32(6)
+                                });
+                            }
+                        }
+                    }
+
+                    connection.Close();
+                }
+
+                GridWindow gridWindow = new GridWindow(reviews);
+                gridWindow.Show();
             }
         }
     }

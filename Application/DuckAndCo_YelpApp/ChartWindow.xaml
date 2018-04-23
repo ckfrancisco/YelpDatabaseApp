@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DuckAndCo_YelpApp"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" x:Class="DuckAndCo_YelpApp.ChartWindow"
+        mc:Ignorable="d"
+        Title="ChartWindow" Height="400" Width="600">
+    <Grid>
+        <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <chartingToolkit:Chart x:Name="chart" Height="371" Width="643">
+                <chartingToolkit:ColumnSeries x:Name="chartSeries" DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}"/>
+            </chartingToolkit:Chart>
+        </ScrollViewer>
+    </Grid>
+</Window>

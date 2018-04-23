@@ -141,9 +141,9 @@
 
                     <GroupBox x:Name="businessesStatisticsGroupBox" Header="Statistics" Margin="368,651,0,0" HorizontalAlignment="Left" Width="280" Height="112" VerticalAlignment="Top">
                         <Grid>
-                            <Button x:Name="businessesStatisticsCheckinsButton" Content="Show Checkins" Margin="10,10,10,0" VerticalAlignment="Top"/>
-                            <Button x:Name="businessesStatisticsReviewsButton" Content="Show Reviews" Margin="10,35,10,0" VerticalAlignment="Top"/>
-                            <Button x:Name="businessesStatisticsCountButton" Content="Show Number of Businesses per Postal Code" Margin="10,60,10,0" VerticalAlignment="Top"/>
+                            <Button x:Name="businessesStatisticsCheckinsButton" Content="Show Checkins" Margin="10,10,10,0" VerticalAlignment="Top" Click="businessesStatisticsCheckinsButton_Click"/>
+                            <Button x:Name="businessesStatisticsReviewsButton" Content="Show Reviews" Margin="10,35,10,0" VerticalAlignment="Top" Click="businessesStatisticsReviewsButton_Click"/>
+                            <Button x:Name="businessesStatisticsCountButton" Content="Show Number of Businesses per Postal Code" Margin="10,60,10,0" VerticalAlignment="Top" Click="businessesStatisticsCountButton_Click"/>
                         </Grid>
                     </GroupBox>
 
@@ -174,5 +174,6 @@
             </TabItem>
 
         </TabControl>
+        <Canvas HorizontalAlignment="Left" Height="100" Margin="-854,231,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
