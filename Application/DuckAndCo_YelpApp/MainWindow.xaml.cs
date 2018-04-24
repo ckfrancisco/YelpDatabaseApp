@@ -118,7 +118,8 @@ namespace DuckAndCo_YelpApp
 
         public void populateBusinessesReviewRatingComboBox()
         {
-            //this is done in the UI
+            for (int i = 1; i <= 5; i++)
+                businessesReviewRatingComboBox.Items.Add(i.ToString());
         }
 
         public void populateDataGrids()
@@ -762,7 +763,7 @@ namespace DuckAndCo_YelpApp
                                                         "0" + "');";
 
                         cmd.ExecuteReader();
-                        businessesReviewReviewTextBox.Text += "\nSuccess, RID: " + rid.ToString();
+                        businessesReviewReviewTextBox.Text = "";
                     }
 
                     connection.Close();
@@ -918,6 +919,8 @@ namespace DuckAndCo_YelpApp
                                                "state ='" + businessesLocationStateComboBox.SelectedItem.ToString() + "' AND " +
                                                "city ='" + businessesLocationCityComboBox.SelectedItem.ToString() + "' " +
                                            "GROUP BY " +
+                                               "postalcode " +
+                                           "ORDER BY " +
                                                "postalcode;";
 
                         using (var reader = cmd.ExecuteReader())

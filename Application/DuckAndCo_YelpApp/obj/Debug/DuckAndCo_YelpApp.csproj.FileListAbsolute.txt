@@ -76,3 +76,26 @@ C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug
 C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.g.cs
 C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\ChartWindow.baml
 C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.baml
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.exe.config
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.exe
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\DuckAndCo_YelpApp.pdb
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\Npgsql.dll
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\Npgsql.xml
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csprojResolveAssemblyReference.cache
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\ChartWindow.g.cs
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.g.cs
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\MainWindow.g.cs
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\App.g.cs
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp_MarkupCompile.cache
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp_MarkupCompile.lref
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\ChartWindow.baml
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.baml
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\MainWindow.baml
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.g.resources
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.Properties.Resources.resources
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csproj.GenerateResource.Cache
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.exe
+\\Mac\Home\Desktop\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.pdb
