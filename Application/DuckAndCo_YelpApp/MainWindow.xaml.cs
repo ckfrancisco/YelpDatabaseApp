@@ -118,8 +118,7 @@ namespace DuckAndCo_YelpApp
 
         public void populateBusinessesReviewRatingComboBox()
         {
-            for(int i = 1; i <= 5; i++)
-                businessesReviewRatingComboBox.Items.Add(i.ToString());
+            //this is done in the UI
         }
 
         public void populateDataGrids()
@@ -727,12 +726,9 @@ namespace DuckAndCo_YelpApp
 
         private void businessesReviewReviewButton_Click(object sender, RoutedEventArgs e)
         {
-            if(businessesReviewRatingComboBox.SelectedItem == null || !(string.IsNullOrEmpty(businessesReviewReviewTextBox.Text)) || !(string.IsNullOrEmpty(businessesReviewNameTextBox.Text)))
+            if(!(string.IsNullOrEmpty(usersUserIDComboBox.Text)) && !(string.IsNullOrEmpty(businessesReviewReviewTextBox.Text)) && !(string.IsNullOrEmpty(businessesReviewRatingComboBox.Text)) && !(string.IsNullOrEmpty(businessesReviewNameTextBox.Text)))
             {
-                return;
-            }
-            else
-            {
+                //!(string.IsNullOrEmpty(businessesReviewReviewTextBox.Text))
                 using (var connection = new NpgsqlConnection(buildConnectionString()))
                 {
                     connection.Open();
@@ -740,11 +736,10 @@ namespace DuckAndCo_YelpApp
                     {
                         cmd.Connection = connection;
                         //need to clean for sql 
-                        string uid = usersUserNameTextBox.Text;
-                        string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid;
+                        string uid = usersUserIDComboBox.Text; //usersUserIDComboBox.Text
+                        string bid = ((Business)businessesBusinessesBusinessesDataGrid.SelectedItem).bid; //businessesReviewNameTextBox.Text
                         string rid = ridGeneration();
-
-                        DateTime datetime = DateTime.UtcNow.Date;
+                        //year-month-day
                         cmd.CommandText = "INSERT INTO " +
                                               "reviews (rid, " +
                                                        "uid, " +
@@ -759,15 +754,15 @@ namespace DuckAndCo_YelpApp
                                                         rid + "','" + 
                                                         uid + "','" + 
                                                         bid + "','" + 
-                                                        businessesReviewReviewTextBox.Text.ToString() + "','" + 
-                                                        datetime.ToString("dd/mm/yyyy") + "','" + 
-                                                        businessesReviewRatingComboBox.Text.ToString() + "','" + 
+                                                        businessesReviewReviewTextBox.Text.ToString() + "','" + //businessesReviewReviewTextBox.Text
+                                                        DateTime.Now.ToString("yyyy-MM-dd") + "','" + 
+                                                        businessesReviewRatingComboBox.Text.ToString() + "','" + //businessesReviewRatingComboBox.Text
                                                         "0" + "','" + 
                                                         "0" + "','" + 
                                                         "0" + "');";
 
                         cmd.ExecuteReader();
-
+                        businessesReviewReviewTextBox.Text += "\nSuccess, RID: " + rid.ToString();
                     }
 
                     connection.Close();
