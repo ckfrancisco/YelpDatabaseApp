@@ -70,3 +70,9 @@ D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Appl
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\ChartWindow.baml
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.baml
 D:\Users\Christian\Documents\School\08_Spring 2018\CptS 451\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\DuckAndCo_YelpApp.csprojResolveAssemblyReference.cache
+C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
+C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\ChartWindow.g.cs
+C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.g.cs
+C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\ChartWindow.baml
+C:\Users\roosevelt young\YelpDatabaseApp\Application\DuckAndCo_YelpApp\obj\Debug\GridWindow.baml
